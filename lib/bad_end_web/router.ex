@@ -18,6 +18,7 @@ defmodule BadEndWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+	get "/slappy", SlappyController, :index
     live "/review", ReviewLive
   end
 
