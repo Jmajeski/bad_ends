@@ -1,7 +1,5 @@
 defmodule BadEnd.WarcraftLogs do
   def get_pulls_from_report("https://www.warcraftlogs.com/reports/" <> report_id) do
-    IO.inspect(report_id)
-
     Neuron.Config.set(url: "https://www.warcraftlogs.com/api/v2/client")
 
     Neuron.Config.set(

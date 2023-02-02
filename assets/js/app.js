@@ -29,6 +29,7 @@ import topbar from "../vendor/topbar"
 let Hooks = {}
 Hooks.YTPlayer = {
     mounted() {
+        
         console.log("mounted yt")
 
         var youtube_player;
@@ -37,7 +38,7 @@ Hooks.YTPlayer = {
         youtube_player = new YT.Player('yt_player', {
             height: '1080',
             width: '1920',
-            videoId: 'qNFpgvxKOK0',
+            videoId: this.el.dataset.vodId,
             playerVars: {
                 'playsinline': 1
             },
@@ -73,7 +74,7 @@ Hooks.TWPlayer = {
         var options = {
             width: 1920,
             height: 1080,
-            video: '1461299501'
+            video: this.el.dataset.vodId
         };
         var twitch_player = new Twitch.Player("twitch_player", options);
 

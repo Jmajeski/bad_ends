@@ -4,7 +4,7 @@ defmodule BadEnd.FakeData do
   end
 
   def fake_fights do
-    fights = [
+    [
       %{
         boss: 1,
         fight_color: "#0f8000",

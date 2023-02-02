@@ -8,21 +8,21 @@ defmodule BadEndWeb.ReviewLive do
   def render(assigns) do
     ~H"""
     <img src="/images/guardian.png" alt="goated guardian"/>
-    
+
     <div class="main">
       <form phx-submit="lookup">
         <input type="text" name="log_url" placeholder="Enter log link"/>
         <input type="text" name="vod_url" placeholder="Enter vod link"/>
         <input type="submit"/>
       </form>
-    
+
       <%= if !Enum.empty?(@fights) do %>
         <%= if @platform == :youtube do %>
-          <%= render(BadEndWeb.PlayerView, "youtube.html", id: "hello world") %>
+          <%= render(BadEndWeb.PlayerView, "youtube.html", vod_id: @vod_id) %>
         <% else %>
-          <%= render(BadEndWeb.PlayerView, "twitch.html", id: "hello world") %>
+          <%= render(BadEndWeb.PlayerView, "twitch.html", vod_id: @vod_id) %>
         <% end %>
-    
+
         <div class="fightList">
           <%= for fight <- @fights do %>
             <div class="fight">
@@ -34,7 +34,7 @@ defmodule BadEndWeb.ReviewLive do
       <% end %>
     </div>
     <div><%= @offset %></div>
-    
+
     <script src="https://player.twitch.tv/js/embed/v1.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     """
